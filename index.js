@@ -10,16 +10,16 @@ var isBuffer = require('isbuffer');
 //var Iterator = require('./iterator');
 
 window.levelup = require('levelup');
-window.GoDown = module.exports = GoDown;
+window.GoLevel = module.exports = GoLevel;
 
-var NAMESPACE = 'GODOWN';
+var NAMESPACE = 'GoLevel';
 
-GoDown.NAMESPACE = NAMESPACE;
+GoLevel.NAMESPACE = NAMESPACE;
 
-function GoDown (location) {
-  if (!(this instanceof GoDown)) return new GoDown(location);
+function GoLevel (location) {
+  if (!(this instanceof GoLevel)) return new GoLevel(location);
   if (!location) throw new Error('constructor requires at least a location argument');
-  if (!window.goinstant) throw new Error('GoDown requires GoInstant');
+  if (!window.goinstant) throw new Error('GoLevel requires GoInstant');
 
   location = location.split('/');
 
@@ -27,9 +27,9 @@ function GoDown (location) {
   this.location = _.initial(location, 1).join('/');
 }
 
-util.inherits(GoDown, AbstractLevelDOWN);
+util.inherits(GoLevel, AbstractLevelDOWN);
 
-GoDown.prototype._open = function (options, callback) {
+GoLevel.prototype._open = function (options, callback) {
   var self = this;
   var opts = { room: this.room };
 
@@ -41,11 +41,11 @@ GoDown.prototype._open = function (options, callback) {
   });
 };
 
-GoDown.prototype._close = function (callback) {
+GoLevel.prototype._close = function (callback) {
   goinstant.disconnect(callback);
 };
 
-GoDown.prototype._get = function (key, options, callback) {
+GoLevel.prototype._get = function (key, options, callback) {
   this.goinstant.key(key).get(function(err, value) {
     if (err) {
       return callback(err);
@@ -64,19 +64,19 @@ GoDown.prototype._get = function (key, options, callback) {
   });
 };
 
-GoDown.prototype._del = function(key, options, callback) {
+GoLevel.prototype._del = function(key, options, callback) {
   this.goinstant.key(key).remove(callback);
 };
 
-GoDown.prototype._put = function (key, value, options, callback) {
+GoLevel.prototype._put = function (key, value, options, callback) {
   // do something with options
 
   this.goinstant.key(key).set(value, callback);
 };
 
-GoDown.prototype._isBuffer = isBuffer;
+GoLevel.prototype._isBuffer = isBuffer;
 
-GoDown.prototype._checkKeyValue = function (obj, type) {
+GoLevel.prototype._checkKeyValue = function (obj, type) {
   if (obj === null || obj === undefined) {
     return new Error(type + ' cannot be `null` or `undefined`');
   }

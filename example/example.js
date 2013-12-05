@@ -2,7 +2,7 @@
   'use strict';
   var location = 'https://goinstant.net/mattcreager/DingDong/zonk';
 
-  var db = levelup(location, { db: GoDown });
+  var db = levelup(location, { db: GoLevel });
 
   db.put('foo', 'bar', function (err) {
     if (err) throw err;
