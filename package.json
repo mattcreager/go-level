@@ -1,5 +1,5 @@
 {
-  "name": "go-down",
+  "name": "go-level",
   "version": "0.0.1",
   "description": "leveldown/leveldb library for browsers using GoInstant",
   "main": "index.js",
