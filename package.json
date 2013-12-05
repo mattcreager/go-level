@@ -1,0 +1,28 @@
+{
+  "name": "go-down",
+  "version": "0.0.1",
+  "description": "leveldown/leveldb library for browsers using GoInstant",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mattcreager/go-down.git"
+  },
+  "keywords": [
+    "level",
+    "leveldb",
+    "levelup",
+    "goinstant"
+  ],
+  "author": "Matt Creager",
+  "license": "BSD",
+  "devDependencies": {
+    "levelup": "~0.18.2",
+    "browserify": "~2.36.1",
+    "grunt-browserify": "~1.2.11",
+    "lodash": "~2.4.1"
+  },
+  "dependencies": {
+    "isbuffer": "~0.0.0",
+    "abstract-leveldown": "0.7.2"
+  }
+}
